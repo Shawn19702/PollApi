@@ -31,14 +31,12 @@ public class PollController {
         return pollService.getAllpolls();
     }
 
-
-    @RequestMapping(value="/polls", method=RequestMethod.POST)
+@PostMapping("/polls")
     public ResponseEntity<?> createPoll(@Valid @RequestBody Poll poll) {
         return pollService.createPoll(poll);
     }
 
-
-    @RequestMapping(value = "/polls/{pollId}", method = RequestMethod.GET)
+@GetMapping("/polls/{pollId}")
     public ResponseEntity<?> getPoll(@PathVariable Long pollId) {
         return pollService.getPoll(pollId);
     }
@@ -47,14 +45,13 @@ public class PollController {
 //    public ResponseEntity<Object> getCustomer(@PathVariable("id") long id) {
 //        return ResponseEntity.ok().body(pollService.getSinglePoll(id));
 //    }
-    @RequestMapping(value = "/polls/{pollId}", method = RequestMethod.PUT)
+    @PutMapping("/polls/{pollId}")
     public ResponseEntity<?> updatePoll(@RequestBody Poll poll, @PathVariable Long pollId) {
         return pollService.updatePoll(poll, pollId);
     }
 
 
-
-    @RequestMapping(value="/polls/{pollId}", method=RequestMethod.DELETE)
+@DeleteMapping("/polls/{pollId}")
     public ResponseEntity<?> deletePoll(@PathVariable Long pollId) {
         return pollService.deletePoll(pollId);
     }

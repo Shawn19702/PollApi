@@ -18,13 +18,12 @@ public class VoteController {
     @Autowired
     private VoteRepository voteRepository;
 
-    @RequestMapping(value="/polls/{pollId}/votes", method=RequestMethod.POST)
+@PostMapping("/polls/{pollId}/votes")
     public ResponseEntity<?> createVote(@PathVariable Long pollId, @RequestBody Vote vote) {
     return voteService.createVote(pollId, vote);
     }
 
-
-    @RequestMapping(value="/polls/{pollId}/votes", method=RequestMethod.GET)
+@GetMapping("/polls/{pollId}/votes")
     public Iterable<Vote> getAllVotes(@PathVariable Long pollId) {
         return voteService.getAllVotes(pollId);
     }

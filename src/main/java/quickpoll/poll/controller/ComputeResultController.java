@@ -24,10 +24,9 @@ public class ComputeResultController {
    @Autowired
    private VoteRepository voteRepository;
 
-
-    @RequestMapping(value="/computeresult", method=RequestMethod.GET)
-    public ResponseEntity<?> getTotalVotes(Long id) {
-       return computeResultService.computeResult(id);
+@GetMapping("/computeresult")
+public ResponseEntity<?> computeResult(@RequestParam Long pollId) {
+       return computeResultService.computeResult(pollId);
     }
 
 

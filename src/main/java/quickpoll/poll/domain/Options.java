@@ -4,7 +4,6 @@ import javax.persistence.*;
 
 
 
-@Entity
 //@Table(name = "polls", uniqueConstraints = {
 //        @UniqueConstraint(columnNames = {
 //                "vote_id"
@@ -13,10 +12,10 @@ import javax.persistence.*;
 //                "QUESTION"
 //        })
 //})
-
-    public class  Option {
+@Entity
+public class Options {
         @Id
-        @GeneratedValue(strategy = GenerationType.AUTO)
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
         @Column(name="OPTION_ID")
         private Long id;
         @Column(name="OPTION_VALUE")
@@ -24,10 +23,15 @@ import javax.persistence.*;
         // Getters and Setters omitted for brevity'
 
 
-        public Option() {
-        }
+    public Options() {
+    }
 
-        public Long getId() {
+//    public Options(Long id, String value) {
+//        this.id = id;
+//        this.value = value;
+//    }
+
+    public Long getId() {
             return id;
         }
 

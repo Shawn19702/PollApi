@@ -2,22 +2,28 @@ package quickpoll.poll.domain;
 
 
 import javax.persistence.*;
-import java.util.Set;
+
+
 
 @Entity
-public class Vote {
+public class Vote{
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="VOTE_ID")
     private Long id;
 
     @ManyToOne
     @JoinColumn(name="OPTION_ID")
-    private Option option;
+    private Options option;
 
     public Vote() {
     }
+
+//    public Vote(Long id, Options option) {
+//        this.id = id;
+//        this.option = option;
+//    }
 
     public Long getId() {
         return id;
@@ -27,11 +33,11 @@ public class Vote {
         this.id = id;
     }
 
-    public Option getOption() {
+    public Options getOption() {
         return option;
     }
 
-    public void setOption(Option option) {
+    public void setOption(Options option) {
         this.option = option;
     }
 
